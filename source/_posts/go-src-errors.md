@@ -62,7 +62,7 @@ func Is(err, target error) bool
 func As(err error, target any) bool
 ```
 
-errors.Unwrap
+### errors.Unwrap
 Unwrap 方法用于获取 wrap 之前的 err 信息, 不管之前的 err 是否被 wrap 过, 也仅只会返回上一次的 err
 ```
 err := errors.New("internal error")
@@ -77,7 +77,7 @@ fmt.Println(errors.Unwrap(wrapErr))
 wrap err: internal error
 ```
 
-errors.Is
+### errors.Is
 Is 方法, 用于判断目标 err 是不是包含在 wrap err 里面, 如果在 wrap 里, 返回 true, 这边需要注意的事: 不过之前的 err 被 wrap 多少次, 只要目标 err 在, 就返回 true
 ```
 err := errors.New("internal error")
@@ -90,7 +90,7 @@ fmt.Println(errors.Is(wrapErr2, err))
 true
 ```
 
-errors.As
+### errors.As
 As 方法, 用于提取指定类型的err, 从 err 树中, 找到第一个符合条件的 err, 并且设置, 否则返回 false.
 ```
 err := errors.New("internal error")
